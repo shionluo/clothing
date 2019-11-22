@@ -1,17 +1,18 @@
 import React from "react";
 
 //-- Components --//
-import HomePage from "./pages/homepage/homepage";
+import Directory from "../../components/Directory/directory";
+
+//-- Style --//
+import "./homepage.scss";
 
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-function App() {
-  return (
-    <div>
-      <HomePage />
-    </div>
-  );
-}
+const HomePage = () => (
+  <div className="homepage">
+    <Directory />
+  </div>
+);
 
-export default App;
+export default HomePage;
