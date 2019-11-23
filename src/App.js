@@ -2,8 +2,9 @@ import React from "react";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-//-- Components --//
+//-- Pages --//
 import HomePage from "./pages/homepage/homepage";
+import Shop from "./pages/shop/shop";
 
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
@@ -14,6 +15,7 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/shop" component={Shop} />
         </Switch>
       </div>
     </BrowserRouter>
