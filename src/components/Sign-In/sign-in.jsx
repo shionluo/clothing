@@ -5,7 +5,7 @@ import FormInput from "../Form-Input/form-input";
 import CustomButton from "../Custom-Button/custom-button";
 
 //-- Firebase --//
-import { signInWithGoogle } from "../../firebase/firebase.js";
+import { auth, signInWithGoogle } from "../../firebase/firebase.js";
 
 //-- Style --//
 import "./sign-in.scss";
@@ -26,10 +26,17 @@ const SignIn = () => {
     }
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    setEmail("");
-    setPassword("");
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
