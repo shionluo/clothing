@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -10,14 +10,29 @@ import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up";
 //-- Components --//
 import Header from "./components/Header/header";
 
+//-- Firebase --//
+import { auth } from "./firebase/firebase";
+
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-function App() {
+const App = () => {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      setCurrentUser(user);
+    });
+
+    return () => {
+      unsubscribeFromAuth();
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <div>
-        <Header />
+        <Header currentUser={currentUser} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={Shop} />
@@ -26,6 +41,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
