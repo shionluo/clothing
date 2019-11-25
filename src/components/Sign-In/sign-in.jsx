@@ -39,7 +39,7 @@ const SignIn = () => {
 
       <form onSubmit={handleSubmit}>
         <FormInput
-          type="text"
+          type="email"
           name="email"
           value={email}
           handleChange={handleChange}
