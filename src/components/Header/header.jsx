@@ -16,8 +16,8 @@ import "./header.scss";
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
 });
 
 const Header = ({ currentUser }) => {
