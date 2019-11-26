@@ -1,7 +1,7 @@
 import React from "react";
 
 //-- Components --//
-import CollectionItem from "../Collection-Item/collection-item";
+import CollectionItem from "../collection-item/collection-item";
 
 //-- Style --/
 import "./collection-preview.scss";

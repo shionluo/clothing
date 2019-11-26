@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 //-- Components --//
-import FormInput from "../Form-Input/form-input";
-import CustomButton from "../Custom-Button/custom-button";
+import FormInput from "../form-input/form-input";
+import CustomButton from "../custom-button/custom-button";
 
 //-- Firebase --//
 import { auth, createUserProfileDocument } from "../../firebase/firebase.js";

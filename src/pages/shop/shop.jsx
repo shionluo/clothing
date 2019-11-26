@@ -1,10 +1,10 @@
 import React from "react";
 
+//-- Components --//
+import CollectionPreview from "../../components/collection-preview/collection-preview";
+
 //-- Data --//
 import SHOP_DATA from "./shop.data";
-
-//-- Components --//
-import CollectionPreview from "../../components/Collection-Preview/collection-preview";
 
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
