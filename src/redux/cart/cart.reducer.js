@@ -1,22 +1,22 @@
-import userActionTypes from "./user.type";
+import cartActionTypes from "./cart.type";
 
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
 const initialState = {
-  currentUser: null
+  hidden: true
 };
 
-const userReducer = (state = initialState, { type, payload }) => {
+const cartReducer = (state = initialState, { type }) => {
   switch (type) {
-    case userActionTypes.SET_CURRENT_USER:
+    case cartActionTypes.TOGGLE_CART_HIDDEN:
       return {
         ...state,
-        currentUser: payload
+        hidden: !state.hidden
       };
     default:
       return state;
   }
 };
 
-export default userReducer;
+export default cartReducer;

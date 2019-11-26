@@ -21,8 +21,8 @@ import { auth, createUserProfileDocument } from "./firebase/firebase";
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+const mapStateToProps = ({ user: { currentUser } }) => ({
+  currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
