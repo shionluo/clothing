@@ -4,6 +4,8 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 
+import { createStructuredSelector } from "reselect";
+
 //-- Pages --//
 import HomePage from "./pages/homepage/homepage";
 import Shop from "./pages/shop/shop";
@@ -15,14 +17,17 @@ import Header from "./components/header/header";
 //-- Actions --//
 import { setCurrentUser } from "./redux/user/user.action";
 
+//-- Selectors --//
+import { selectUserCurrent } from "./redux/user/user.selectors";
+
 //-- Firebase --//
 import { auth, createUserProfileDocument } from "./firebase/firebase";
 
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-const mapStateToProps = ({ user: { currentUser } }) => ({
-  currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectUserCurrent
 });
 
 const mapDispatchToProps = dispatch => ({
