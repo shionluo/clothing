@@ -10,6 +10,7 @@ import { createStructuredSelector } from "reselect";
 import HomePage from "./pages/homepage/homepage";
 import Shop from "./pages/shop/shop";
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up";
+import CheckOut from "./pages/checkout/checkout";
 
 //-- Components --//
 import Header from "./components/header/header";
@@ -63,6 +64,7 @@ const App = ({ currentUser, setCurrentUser }) => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={Shop} />
+          <Route exact path="/checkout" component={CheckOut} />
           <Route
             exact
             path="/signin"
