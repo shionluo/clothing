@@ -6,6 +6,9 @@ import CollectionPreview from "../../components/collection-preview/collection-pr
 //-- Data --//
 import SHOP_DATA from "./shop.data";
 
+//-- Style --//
+import "./shop.scss";
+
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
@@ -13,7 +16,7 @@ const Shop = () => {
   const collections = SHOP_DATA;
 
   return (
-    <div className="shop-page">
+    <div className="shop">
       {collections.map(({ id, ...otherCollectionProps }) => (
         <CollectionPreview key={id} {...otherCollectionProps} />
       ))}
