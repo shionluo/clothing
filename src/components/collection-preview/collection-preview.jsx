@@ -9,7 +9,8 @@ import "./collection-preview.scss";
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-const CollectionPreview = ({ title, items }) => {
+const CollectionPreview = ({ title, items, ...otherProps }) => {
+  console.log(otherProps);
   return (
     <div className="collection-preview">
       <h1 className="title">{title.toUpperCase()}</h1>
