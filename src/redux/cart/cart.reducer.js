@@ -1,6 +1,6 @@
 import cartActionTypes from "./cart.type";
 
-import { addItemToCart } from "./cart.utils";
+import { addItemToCart, subtractItemFromCart } from "./cart.utils";
 
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
@@ -21,6 +21,11 @@ const cartReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, payload)
+      };
+    case cartActionTypes.SUBTRACT_ITEM:
+      return {
+        ...state,
+        cartItems: subtractItemFromCart(state.cartItems, payload)
       };
     case cartActionTypes.REMOVE_ITEM:
       return {
