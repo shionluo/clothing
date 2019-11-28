@@ -1,7 +1,14 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
+import { createStructuredSelector } from "reselect";
+
 //-- Components --//
 import MenuItem from "../menu-item/menu-item";
+
+//-- Selectors --//
+import { selectDirectorySections } from "../../redux/directory/directory.selectors";
 
 //-- Style --//
 import "./directory.scss";
@@ -9,42 +16,11 @@ import "./directory.scss";
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-const Directory = () => {
-  const sections = [
-    {
-      id: 1,
-      title: "Hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-      linkUrl: "hats"
-    },
-    {
-      id: 2,
-      title: "Jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-      linkUrl: "jackets"
-    },
-    {
-      id: 3,
-      title: "Sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-      linkUrl: "sneakers"
-    },
-    {
-      id: 4,
-      title: "Womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-      linkUrl: "womens",
-      size: "large"
-    },
-    {
-      id: 5,
-      title: "Mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-      linkUrl: "mens",
-      size: "large"
-    }
-  ];
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySections
+});
 
+const Directory = ({ sections }) => {
   return (
     <div className="directory">
       {sections.map(({ id, ...otherSecitonProps }) => (
@@ -54,4 +30,4 @@ const Directory = () => {
   );
 };
 
-export default Directory;
+export default connect(mapStateToProps)(Directory);

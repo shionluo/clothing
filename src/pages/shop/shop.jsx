@@ -1,10 +1,12 @@
 import React from "react";
 
-//-- Components --//
-import CollectionPreview from "../../components/collection-preview/collection-preview";
+import { Route } from "react-router-dom";
 
-//-- Data --//
-import SHOP_DATA from "./shop.data";
+//-- Pages --//
+import Collection from "../collection/collection";
+
+//-- Components --//
+import CollectionsOverview from "../../components/collections-overview/collections-overview";
 
 //-- Style --//
 import "./shop.scss";
@@ -12,14 +14,11 @@ import "./shop.scss";
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-const Shop = () => {
-  const collections = SHOP_DATA;
-
+const Shop = ({ match }) => {
   return (
     <div className="shop">
-      {collections.map(({ id, ...otherCollectionProps }) => (
-        <CollectionPreview key={id} {...otherCollectionProps} />
-      ))}
+      <Route exact path={`${match.path}`} component={CollectionsOverview} />
+      <Route path={`${match.path}/:collectionId`} component={Collection} />
     </div>
   );
 };

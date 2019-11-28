@@ -63,7 +63,7 @@ const App = ({ currentUser, setCurrentUser }) => {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/shop" component={Shop} />
+          <Route path="/shop" component={Shop} />
           <Route exact path="/checkout" component={CheckOut} />
           <Route
             exact
