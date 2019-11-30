@@ -7,13 +7,13 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 //-- Pages --//
-import HomePage from "./pages/homepage/homepage";
-import Shop from "./pages/shop/shop";
-import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up";
-import CheckOut from "./pages/checkout/checkout";
+import HomePage from "./pages/homepage/homepage.component";
+import Shop from "./pages/shop/shop.component";
+import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import CheckOut from "./pages/checkout/checkout.component";
 
 //-- Components --//
-import Header from "./components/header/header";
+import Header from "./components/header/header.component";
 
 //-- Actions --//
 import { setCurrentUser } from "./redux/user/user.action";
