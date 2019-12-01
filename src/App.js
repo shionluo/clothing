@@ -16,7 +16,7 @@ import CheckOut from "./pages/checkout/checkout.component";
 import Header from "./components/header/header.component";
 
 //-- Actions --//
-import { setCurrentUser } from "./redux/user/user.action";
+import { setCurrentUser } from "./redux/user/user.actions";
 
 //-- Selectors --//
 import { selectUserCurrent } from "./redux/user/user.selectors";

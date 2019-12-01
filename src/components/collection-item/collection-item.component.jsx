@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 //-- Actions --//
-import { addItem } from "../../redux/cart/cart.action";
+import { addItem } from "../../redux/cart/cart.actions";
 
 //-- Style --//
 import {

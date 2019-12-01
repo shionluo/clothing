@@ -36,8 +36,8 @@ const CheckOut = ({ cartItems, totalPrice }) => {
   return (
     <CheckOutContainer>
       <CheckOutHeaderContainer>
-        {columns.map(column => (
-          <HeaderBlockContainer>
+        {columns.map((column, index) => (
+          <HeaderBlockContainer key={index}>
             <span>{column}</span>
           </HeaderBlockContainer>
         ))}

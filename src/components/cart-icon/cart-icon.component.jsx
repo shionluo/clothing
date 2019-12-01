@@ -8,7 +8,7 @@ import { createStructuredSelector } from "reselect";
 import { selectCartItemsCount } from "../../redux/cart/cart.selectors";
 
 //-- Actions --//
-import { toggleCartHidden } from "../../redux/cart/cart.action";
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
 //-- Style --//
 import {

@@ -1,9 +1,9 @@
-import userActionTypes from "./user.type";
+import ShopActionTypes from "./shop.types";
 
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
-export const setCurrentUser = user => ({
-  type: userActionTypes.SET_CURRENT_USER,
-  payload: user
+export const updateCollections = collections => ({
+  type: ShopActionTypes.UPDATE_COLLECTIONS,
+  payload: collections
 });

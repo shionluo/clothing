@@ -7,7 +7,7 @@ import {
   removeItem,
   subtractItem,
   addItem
-} from "../../redux/cart/cart.action";
+} from "../../redux/cart/cart.actions";
 
 //-- Style --//
 import {

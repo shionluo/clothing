@@ -10,7 +10,7 @@ import { withRouter } from "react-router-dom";
 import CartItem from "../cart-item/cart-item.component";
 
 //-- Actions --//
-import { toggleCartHidden } from "../../redux/cart/cart.action";
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
 //-- Selectors --//
 import { selectCartItems } from "../../redux/cart/cart.selectors";
