@@ -20,23 +20,18 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const SignUp = ({ signUpStart }) => {
-  const [displayName, setDisplayName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [userCredentials, setUserCredentials] = useState({
+    displayName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+
+  const { displayName, email, password, confirmPassword } = userCredentials;
 
   const handleChange = event => {
     const { name, value } = event.target;
-
-    if (name === "displayName") {
-      setDisplayName(value);
-    } else if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    } else if (name === "confirmPassword") {
-      setConfirmPassword(value);
-    }
+    setUserCredentials({ ...userCredentials, [name]: value });
   };
 
   const handleSubmit = async event => {
@@ -58,33 +53,33 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="text"
           name="displayName"
+          label="Display Name"
           value={displayName}
           handleChange={handleChange}
-          label="Display Name"
           required
         />
         <FormInput
           type="text"
           name="email"
+          label="Email"
           value={email}
           handleChange={handleChange}
-          label="Email"
           required
         />
         <FormInput
           type="password"
           name="password"
+          label="Password"
           value={password}
           handleChange={handleChange}
-          label="Password"
           required
         />
         <FormInput
           type="password"
           name="confirmPassword"
+          label="Confirm Password"
           value={confirmPassword}
           handleChange={handleChange}
-          label="Confirm Password"
           required
         />
         <CustomButton type="submit">SIGN UP</CustomButton>

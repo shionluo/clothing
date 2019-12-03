@@ -25,29 +25,21 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const SignIn = ({ googleSignInStart, emailSignInStart }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userCredentials, setUserCredentials] = useState({
+    email: "",
+    password: ""
+  });
+
+  const { email, password } = userCredentials;
 
   const handleChange = event => {
     const { name, value } = event.target;
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    }
+    setUserCredentials({ ...userCredentials, [name]: value });
   };
 
   const handleSubmit = async event => {
     event.preventDefault();
     emailSignInStart({ email, password });
-    // try {
-    //   await auth.signInWithEmailAndPassword(email, password);
-
-    //   setEmail("");
-    //   setPassword("");
-    // } catch (error) {
-    //   alert(error.message);
-    // }
   };
 
   return (
@@ -59,17 +51,17 @@ const SignIn = ({ googleSignInStart, emailSignInStart }) => {
         <FormInput
           type="email"
           name="email"
+          label="Email"
           value={email}
           handleChange={handleChange}
-          label="Email"
           required
         />
         <FormInput
           type="password"
           name="password"
+          label="Password"
           value={password}
           handleChange={handleChange}
-          label="Password"
           required
         />
         <ButtonsContainer>
