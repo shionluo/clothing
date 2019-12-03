@@ -16,13 +16,10 @@ import CheckOut from "./pages/checkout/checkout.component";
 import Header from "./components/header/header.component";
 
 //-- Actions --//
-import { setCurrentUser } from "./redux/user/user.actions";
+import { checkUserSession } from "./redux/user/user.actions";
 
 //-- Selectors --//
 import { selectUserCurrent } from "./redux/user/user.selectors";
-
-//-- Firebase --//
-import { auth, createUserProfileDocument } from "./firebase/firebase";
 
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
@@ -32,30 +29,13 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  checkUserSession: () => dispatch(checkUserSession())
 });
 
-const App = ({ currentUser, setCurrentUser }) => {
+const App = ({ currentUser, checkUserSession }) => {
   useEffect(() => {
-    const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-          });
-        });
-      } else {
-        setCurrentUser(null);
-      }
-    });
-
-    return () => {
-      unsubscribeFromAuth();
-    };
-  }, [setCurrentUser]);
+    checkUserSession();
+  }, [checkUserSession]);
 
   return (
     <BrowserRouter>

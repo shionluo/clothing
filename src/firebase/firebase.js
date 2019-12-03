@@ -22,9 +22,7 @@ export const firestore = firebase.firestore();
 export const auth = firebase.auth();
 
 //-- Google Sign In --//
-const provider = new firebase.auth.GoogleAuthProvider();
-
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 //-- Create User Profile --//
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -45,6 +43,16 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
 
   return userRef;
+};
+
+//-- Get Current User --//
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
 };
 
 //-- Add Collection & Documents --//
