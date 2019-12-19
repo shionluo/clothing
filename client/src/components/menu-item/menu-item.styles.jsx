@@ -34,6 +34,10 @@ export const MenuItemContainer = styled.div`
   &:last-child {
     margin-left: 7.5px;
   }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
+  }
 `;
 
 export const BackgroundImageContainer = styled.div`
@@ -63,6 +67,10 @@ export const ContentTitle = styled.span`
   font-size: 22px;
   color: #4a4a4a;
   letter-spacing: 4px;
+
+  @media screen and (max-width: 800px) {
+    letter-spacing: 2px;
+  }
 `;
 
 export const ContentSubTitle = styled.span`

@@ -21,6 +21,9 @@ import { checkUserSession } from './redux/user/user.actions';
 //-- Selectors --//
 import { selectUserCurrent } from './redux/user/user.selectors';
 
+//-- Styles --//
+import { GlobalStyle } from './global.styles';
+
 //-----------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------//
 
@@ -40,6 +43,7 @@ const App = ({ currentUser, checkUserSession }) => {
   return (
     <BrowserRouter>
       <div>
+        <GlobalStyle />
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />

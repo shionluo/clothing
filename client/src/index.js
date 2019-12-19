@@ -11,9 +11,6 @@ import App from './App';
 //-- Store --//
 import { store, persistor } from './redux/store';
 
-//-- Style --//
-import './index.css';
-
 //-- Service Worker --//
 import * as serviceWorker from './serviceWorker';
 
