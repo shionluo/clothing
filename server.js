@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const compression = require('compression');
 
 // Config
 if (process.env.NODE_ENV !== 'production') dotenv.config();
@@ -13,6 +14,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 // Midllewares
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
